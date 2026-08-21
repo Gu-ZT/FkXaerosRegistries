@@ -41,9 +41,45 @@ jobs:
       - name: Build
         run: ./gradlew build --console=plain
 
-      - name: Upload mod artifact
+      - name: Find mod artifacts
+        id: artifact
+        shell: bash
+        run: |
+          jar=$(find build/libs -maxdepth 1 -type f -name 'fk-xaeros-registries-*.jar' ! -name '*-sources.jar' -print -quit)
+          sources=$(find build/libs -maxdepth 1 -type f -name 'fk-xaeros-registries-*-sources.jar' -print -quit)
+          test -n "$jar"
+          test -n "$sources"
+          name=$(basename "$jar" .jar)
+          version=${name#fk-xaeros-registries-}
+          echo "path=$jar" >> "$GITHUB_OUTPUT"
+          echo "sources=$sources" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Upload mod artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: fk-xaeros-registries
-          path: build/libs/fk-xaeros-registries-*.jar
+          name: ${{ steps.artifact.outputs.name }}
+          path: |
+            ${{ steps.artifact.outputs.path }}
+            ${{ steps.artifact.outputs.sources }}
           if-no-files-found: error
+
+      - name: Publish beta to Modrinth and CurseForge
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          name: Fk Xaero's Registries Beta v${{ steps.artifact.outputs.version }}
+          version: ${{ steps.artifact.outputs.version }}
+          version-type: beta
+          changelog: Automated beta build from ${{ github.sha }}.
+          game-versions: 26.2
+          loaders: fabric
+          java: 25
+          fail-mode: fail
+          modrinth-id: JHFjxQyf
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          curseforge-id: 1661969
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          files: |
+            ${{ steps.artifact.outputs.path }}
+            ${{ steps.artifact.outputs.sources }}
