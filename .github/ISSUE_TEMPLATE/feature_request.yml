@@ -1,0 +1,37 @@
+name: Feature Request - 功能请求
+description: Suggest an idea for this project. - 为这个项目推荐一个新想法
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filling in this issue, please make sure there are no similar or duplicate issues.
+        填写此 issue 前，请先确认没有类似或重复的 issue。
+
+  - type: textarea
+    id: request
+    attributes:
+      label: Requested Feature - 期望功能
+      description: Describe the feature or change, why it is useful, and include screenshots or examples when appropriate.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives - 替代方案
+      description: Describe any existing workaround or alternative solution you considered.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks - 检查项
+      options:
+        - label: I have searched the issue tracker and confirmed that no identical issue exists. 我已搜索问题追踪器并确认没有相同的 Issue。
+          required: true
+        - label: I have described the requested feature and its rationale in sufficient detail. 我已充分说明期望功能及其理由。
+          required: true

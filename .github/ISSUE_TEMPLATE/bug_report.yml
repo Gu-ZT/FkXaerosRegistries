@@ -1,0 +1,83 @@
+name: Bug Report - Bug反馈
+description: Create a report to help us improve. - 反馈问题，帮助我们改进
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filling in this issue, please make sure there are no similar or duplicate issues.
+        填写此 issue 前，请先确认没有类似或重复的 issue。
+
+  - type: dropdown
+    id: system
+    attributes:
+      label: OS Version - 操作系统
+      options:
+        - Linux
+        - Windows
+        - macOS
+    validations:
+      required: true
+
+  - type: input
+    id: minecraft_version
+    attributes:
+      label: Minecraft Version - Minecraft 版本
+      placeholder: "26.2"
+    validations:
+      required: true
+
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod Version - 模组版本
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: xaero_versions
+    attributes:
+      label: Xaero Versions - Xaero 版本
+      description: Please provide the versions of Xaero's Minimap and Xaero's World Map.
+      placeholder: "Minimap 26.4.2, World Map 1.44.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: existing_behavior
+    attributes:
+      label: Existing Behavior - 现有行为
+      description: Describe the issue. Upload logs and crash reports to https://mclo.gs/ and provide the link here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior - 预期行为
+      description: Describe the result you expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: To Reproduce - 复现步骤
+      description: Describe how to trigger the issue step by step.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks - 检查项
+      options:
+        - label: I have searched the issue tracker and confirmed that no identical issue exists. 我已搜索问题追踪器并确认没有相同的 Issue。
+          required: true
+        - label: I am using the latest supported version of this mod and its Xaero dependencies. 我正在使用本模组及其 Xaero 依赖的最新受支持版本。
+          required: true
+        - label: I have provided enough information, logs, and screenshots for the issue to be investigated. 我已提供足以排查问题的信息、日志和截图。
+          required: true

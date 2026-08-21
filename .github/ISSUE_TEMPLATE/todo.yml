@@ -1,0 +1,25 @@
+name: TODO
+description: Add a project to-do item. - 添加一个项目待办事项
+title: "[TODO] "
+labels:
+  - todo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue form is for project maintainers only.
+        此 Issue 模板仅供项目维护者使用。
+
+  - type: input
+    id: summary
+    attributes:
+      label: TODO Summary - 待办事项
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details - 详细说明
+    validations:
+      required: false
