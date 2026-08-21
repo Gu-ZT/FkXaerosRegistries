@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - main
+      - releases/**
     paths:
       - src/**
       - gradle/**
@@ -26,11 +26,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java 25
+      - name: Read build target
+        id: target
+        shell: bash
+        run: |
+          prop() { grep -E "^$1=" gradle.properties | head -1 | cut -d= -f2- | tr -d '\r'; }
+          echo "minecraft=$(prop minecraft_version)" >> "$GITHUB_OUTPUT"
+          echo "loader=$(prop mod_loader)" >> "$GITHUB_OUTPUT"
+          echo "java=$(prop java_version)" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Java ${{ steps.target.outputs.java }}
         uses: actions/setup-java@v5
         with:
           distribution: zulu
-          java-version: "25"
+          java-version: ${{ steps.target.outputs.java }}
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -44,6 +53,6 @@ jobs:
       - name: Upload mod artifact
         uses: actions/upload-artifact@v4
         with:
-          name: fk-xaeros-registries-pr
+          name: fk-xaeros-registries-pr-${{ steps.target.outputs.minecraft }}-${{ steps.target.outputs.loader }}
           path: build/libs/fk-xaeros-registries-*.jar
           if-no-files-found: error

@@ -17,12 +17,18 @@ if (buildTypeEnv == "pr") {
     buildType = "build"
 }
 
+// Every release branch publishes to the same Modrinth/CurseForge project, so the
+// version has to carry the game version and loader to stay unique across branches.
+def targetSuffix = "${project.minecraft_version}-${project.mod_loader}"
+
 def githubRef = System.getenv("GITHUB_REF")
+String baseVersion
 if (githubRef != null && githubRef.startsWith("refs/tags/")) {
-    version = githubRef.substring(githubRef.lastIndexOf("/") + 1)
+    baseVersion = githubRef.substring(githubRef.lastIndexOf("/") + 1).replaceFirst(/^v/, "")
 } else {
-    version = "${project.mod_version}" + (buildNumber != null ? "+${buildType}.${buildNumber}" : "")
+    baseVersion = "${project.mod_version}"
 }
+version = "${baseVersion}+${targetSuffix}" + (buildNumber != null ? "-${buildType}.${buildNumber}" : "")
 group = project.maven_group
 
 base {
@@ -62,24 +68,34 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    implementation "maven.modrinth:xaeros-minimap:fabric-26.2-26.4.2"
-    implementation "maven.modrinth:xaeros-world-map:fabric-26.2-1.44.2"
+    // Xaero has no build for every game version; the mixin targets its classes by
+    // name, so the jars are only needed for the dev runtime and are skipped when absent.
+    if (project.xaero_minimap_artifact) {
+        implementation "maven.modrinth:xaeros-minimap:${project.xaero_minimap_artifact}"
+    }
+    if (project.xaero_worldmap_artifact) {
+        implementation "maven.modrinth:xaeros-world-map:${project.xaero_worldmap_artifact}"
+    }
 }
 
 processResources {
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "loader_version", project.loader_version
+    inputs.property "xaero_minimap_version", project.xaero_minimap_version
+    inputs.property "xaero_worldmap_version", project.xaero_worldmap_version
     filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
-                "loader_version": project.loader_version
+                "loader_version": project.loader_version,
+                "xaero_minimap_version": project.xaero_minimap_version,
+                "xaero_worldmap_version": project.xaero_worldmap_version
     }
 }
 
-def targetJavaVersion = 25
+def targetJavaVersion = project.java_version as int
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly

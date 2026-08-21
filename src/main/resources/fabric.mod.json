@@ -30,7 +30,7 @@
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
     "minecraft": "${minecraft_version}",
-    "xaerominimap": ">=26.4.2",
-    "xaeroworldmap": ">=1.44.2"
+    "xaerominimap": ">=${xaero_minimap_version}",
+    "xaeroworldmap": ">=${xaero_worldmap_version}"
   }
 }
