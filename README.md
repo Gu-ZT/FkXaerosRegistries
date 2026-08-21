@@ -8,7 +8,7 @@
 
 English | [简体中文](README.zh_CN.md)
 
-**This branch targets Minecraft 26.2 on NeoForge.**
+**This branch targets Minecraft 26.1.2 on NeoForge.**
 
 </div>
 
@@ -20,8 +20,8 @@ The mod is a single mixin that targets Xaero's registration methods by class nam
 
 ## Requirements
 
-- Minecraft 26.2
-- NeoForge 26.2.0.64 or later
+- Minecraft 26.1.2
+- NeoForge 26.1.2.97 or later
 - Xaero's Minimap 26.4.2 or later
 - Xaero's World Map 1.45.0 or later
 - Java 25
@@ -45,8 +45,8 @@ Each Minecraft version and mod loader has its own `releases/<minecraft>-<loader>
 | `1.21.9` | [`releases/1.21.9-fabric`](../../tree/releases/1.21.9-fabric) | [`releases/1.21.9-neoforge`](../../tree/releases/1.21.9-neoforge) ¹ |
 | `1.21.10` | [`releases/1.21.10-fabric`](../../tree/releases/1.21.10-fabric) | [`releases/1.21.10-neoforge`](../../tree/releases/1.21.10-neoforge) |
 | `1.21.11` | [`releases/1.21.11-fabric`](../../tree/releases/1.21.11-fabric) | [`releases/1.21.11-neoforge`](../../tree/releases/1.21.11-neoforge) |
-| `26.1.2` | [`releases/26.1.2-fabric`](../../tree/releases/26.1.2-fabric) | [`releases/26.1.2-neoforge`](../../tree/releases/26.1.2-neoforge) |
-| `26.2` | [`releases/26.2-fabric`](../../tree/releases/26.2-fabric) | **[`releases/26.2-neoforge`](../../tree/releases/26.2-neoforge)** |
+| `26.1.2` | [`releases/26.1.2-fabric`](../../tree/releases/26.1.2-fabric) | **[`releases/26.1.2-neoforge`](../../tree/releases/26.1.2-neoforge)** |
+| `26.2` | [`releases/26.2-fabric`](../../tree/releases/26.2-fabric) | [`releases/26.2-neoforge`](../../tree/releases/26.2-neoforge) |
 
 ¹ NeoForge only ever published beta builds for this Minecraft version.
 
