@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom-remap' version '1.17-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -65,16 +65,17 @@ repositories {
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     // Xaero has no build for every game version; the mixin targets its classes by
     // name, so the jars are only needed for the dev runtime and are skipped when absent.
     if (project.xaero_minimap_artifact) {
-        implementation "maven.modrinth:xaeros-minimap:${project.xaero_minimap_artifact}"
+        modImplementation "maven.modrinth:xaeros-minimap:${project.xaero_minimap_artifact}"
     }
     if (project.xaero_worldmap_artifact) {
-        implementation "maven.modrinth:xaeros-world-map:${project.xaero_worldmap_artifact}"
+        modImplementation "maven.modrinth:xaeros-world-map:${project.xaero_worldmap_artifact}"
     }
 }
 
