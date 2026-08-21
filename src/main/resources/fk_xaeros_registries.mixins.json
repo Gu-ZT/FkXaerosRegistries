@@ -4,6 +4,7 @@
   "package": "dev.dubhe.gugle.xaero.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "EffectsRegisterMixin"
   ],
   "injectors": {
     "defaultRequire": 1
