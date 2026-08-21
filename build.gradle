@@ -9,7 +9,7 @@ String buildTypeEnv = System.getenv("BUILD_TYPE")
 if (buildTypeEnv == "pr") {
     buildType = "pr"
 } else if (buildTypeEnv == "snapshot") {
-    buildType = "snapshot"
+    buildType = "snap"
 } else if (buildTypeEnv == "release") {
     buildType = null
     buildNumber = null
