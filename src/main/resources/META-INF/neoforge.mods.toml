@@ -1,0 +1,44 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "LGPL-3.0"
+issueTrackerURL = "https://github.com/Gu-ZT/FkXaerosRegistries/issues"
+
+[[mods]]
+modId = "fk_xaeros_registries"
+version = "${version}"
+displayName = "Fk Xaero's Registries"
+authors = "Gu-ZT"
+logoFile = "assets/fk_xaeros_registries/icon.png"
+description = '''阻止 Xaero 的世界地图和小地图注册状态效果。'''
+
+[[mixins]]
+config = "fk_xaeros_registries.mixins.json"
+
+[[dependencies.fk_xaeros_registries]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fk_xaeros_registries]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${minecraft_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+# Xaero's mods are client-only, so the mixin targets only ever exist on the client.
+[[dependencies.fk_xaeros_registries]]
+modId = "xaerominimap"
+type = "required"
+versionRange = "[${xaero_minimap_version},)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.fk_xaeros_registries]]
+modId = "xaeroworldmap"
+type = "required"
+versionRange = "[${xaero_worldmap_version},)"
+ordering = "AFTER"
+side = "CLIENT"

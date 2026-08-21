@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
+    id 'net.neoforged.moddev' version '2.0.144'
     id 'maven-publish'
 }
 
@@ -35,25 +35,24 @@ base {
     archivesName = project.archives_base_name
 }
 
-loom {
-    splitEnvironmentSourceSets()
+neoForge {
+    version = project.neoforge_version
 
     mods {
         "fk_xaeros_registries" {
             sourceSet sourceSets.main
-            sourceSet sourceSets.client
+        }
+    }
+
+    runs {
+        client {
+            client()
         }
     }
 }
 
-fabricApi {
-    configureDataGeneration {
-        client = true
-    }
-}
-
 repositories {
-    maven { // Sodium, Embeddium, Iris, Jade
+    maven { // Xaero's Minimap, Xaero's World Map
         name = "Modrinth Maven"
         url = "https://api.modrinth.com/maven"
         content {
@@ -64,10 +63,6 @@ repositories {
 
 dependencies {
     // To change the versions see the gradle.properties file
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     // Xaero has no build for every game version; the mixin targets its classes by
     // name, so the jars are only needed for the dev runtime and are skipped when absent.
     if (project.xaero_minimap_artifact) {
@@ -81,15 +76,15 @@ dependencies {
 processResources {
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
-    inputs.property "loader_version", project.loader_version
+    inputs.property "neoforge_version", project.neoforge_version
     inputs.property "xaero_minimap_version", project.xaero_minimap_version
     inputs.property "xaero_worldmap_version", project.xaero_worldmap_version
     filteringCharset "UTF-8"
 
-    filesMatching("fabric.mod.json") {
+    filesMatching("META-INF/neoforge.mods.toml") {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
-                "loader_version": project.loader_version,
+                "neoforge_version": project.neoforge_version,
                 "xaero_minimap_version": project.xaero_minimap_version,
                 "xaero_worldmap_version": project.xaero_worldmap_version
     }
@@ -112,9 +107,6 @@ java {
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
-    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-    // if it is present.
-    // If you remove this line, sources will not be generated.
     withSourcesJar()
 }
 

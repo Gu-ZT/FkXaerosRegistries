@@ -1,10 +1,7 @@
 package dev.dubhe.gugle.xaero;
 
-import net.fabricmc.api.ModInitializer;
+import net.neoforged.fml.common.Mod;
 
-public class FkXaerosRegistries implements ModInitializer {
-
-    @Override
-    public void onInitialize() {
-    }
+@Mod("fk_xaeros_registries")
+public class FkXaerosRegistries {
 }
