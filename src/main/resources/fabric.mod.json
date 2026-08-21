@@ -9,6 +9,7 @@
   ],
   "contact": {},
   "license": "LGPL-3.0",
+  "icon": "assets/fk_xaeros_registries/icon.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
