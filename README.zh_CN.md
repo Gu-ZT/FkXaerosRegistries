@@ -8,7 +8,7 @@
 
 [English](README.md) | 简体中文
 
-**本分支面向 NeoForge 平台的 Minecraft 26.2。**
+**本分支面向 NeoForge 平台的 Minecraft 1.21.6。**
 
 </div>
 
@@ -20,13 +20,15 @@ Xaero 的小地图和 Xaero 的世界地图都会向 Minecraft 的状态效果�
 
 ## 环境要求
 
-- Minecraft 26.2
-- NeoForge 26.2.0.64 或更高版本
-- Xaero's Minimap 26.4.2 或更高版本
-- Xaero's World Map 1.45.0 或更高版本
-- Java 25
+- Minecraft 1.21.6
+- NeoForge 21.6.20-beta 或更高版本
+- Xaero's Minimap 25.2.8 或更高版本
+- Xaero's World Map 1.39.11 或更高版本
+- Java 21
 
 请将本模组与两个 Xaero 模组一同安装。它在 Xaero 的小地图和世界地图加载所在的客户端生效。
+
+> NeoForge 从未为 Minecraft 1.21.6 发布稳定版，因此本分支固定使用最新的 beta 版本 `21.6.20-beta`。
 
 ## 支持的版本
 
@@ -39,14 +41,14 @@ Xaero 的小地图和 Xaero 的世界地图都会向 Minecraft 的状态效果�
 | `1.21.3` | [`releases/1.21.3-fabric`](../../tree/releases/1.21.3-fabric) | [`releases/1.21.3-neoforge`](../../tree/releases/1.21.3-neoforge) |
 | `1.21.4` | [`releases/1.21.4-fabric`](../../tree/releases/1.21.4-fabric) | [`releases/1.21.4-neoforge`](../../tree/releases/1.21.4-neoforge) |
 | `1.21.5` | [`releases/1.21.5-fabric`](../../tree/releases/1.21.5-fabric) | [`releases/1.21.5-neoforge`](../../tree/releases/1.21.5-neoforge) |
-| `1.21.6` | [`releases/1.21.6-fabric`](../../tree/releases/1.21.6-fabric) | [`releases/1.21.6-neoforge`](../../tree/releases/1.21.6-neoforge) ¹ |
+| `1.21.6` | [`releases/1.21.6-fabric`](../../tree/releases/1.21.6-fabric) | **[`releases/1.21.6-neoforge`](../../tree/releases/1.21.6-neoforge)** ¹ |
 | `1.21.7` | [`releases/1.21.7-fabric`](../../tree/releases/1.21.7-fabric) | [`releases/1.21.7-neoforge`](../../tree/releases/1.21.7-neoforge) ¹ |
 | `1.21.8` | [`releases/1.21.8-fabric`](../../tree/releases/1.21.8-fabric) | [`releases/1.21.8-neoforge`](../../tree/releases/1.21.8-neoforge) |
 | `1.21.9` | [`releases/1.21.9-fabric`](../../tree/releases/1.21.9-fabric) | [`releases/1.21.9-neoforge`](../../tree/releases/1.21.9-neoforge) ¹ |
 | `1.21.10` | [`releases/1.21.10-fabric`](../../tree/releases/1.21.10-fabric) | [`releases/1.21.10-neoforge`](../../tree/releases/1.21.10-neoforge) |
 | `1.21.11` | [`releases/1.21.11-fabric`](../../tree/releases/1.21.11-fabric) | [`releases/1.21.11-neoforge`](../../tree/releases/1.21.11-neoforge) |
 | `26.1.2` | [`releases/26.1.2-fabric`](../../tree/releases/26.1.2-fabric) | [`releases/26.1.2-neoforge`](../../tree/releases/26.1.2-neoforge) |
-| `26.2` | [`releases/26.2-fabric`](../../tree/releases/26.2-fabric) | **[`releases/26.2-neoforge`](../../tree/releases/26.2-neoforge)** |
+| `26.2` | [`releases/26.2-fabric`](../../tree/releases/26.2-fabric) | [`releases/26.2-neoforge`](../../tree/releases/26.2-neoforge) |
 
 ¹ NeoForge 对该 Minecraft 版本仅发布过 beta 版本。
 
