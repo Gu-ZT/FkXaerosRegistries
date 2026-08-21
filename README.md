@@ -8,7 +8,7 @@
 
 English | [简体中文](README.zh_CN.md)
 
-**This branch targets Minecraft 26.2 on Fabric.**
+**This branch targets Minecraft 1.21.3 on Fabric.**
 
 </div>
 
@@ -20,12 +20,12 @@ The mod is a single mixin that targets Xaero's registration methods by class nam
 
 ## Requirements
 
-- Minecraft 26.2
+- Minecraft 1.21.3
 - Fabric Loader 0.19.3 or later
-- Fabric API 0.158.0+26.2
-- Xaero's Minimap 26.4.2 or later
-- Xaero's World Map 1.45.0 or later
-- Java 25
+- Fabric API 0.114.1+1.21.3
+- Xaero's Minimap 25.3.5 or later
+- Xaero's World Map 1.40.6 or later
+- Java 21
 
 Install this mod alongside both Xaero mods. It takes effect on the client, where Xaero's Minimap and World Map load.
 
@@ -37,7 +37,7 @@ Each Minecraft version and mod loader has its own `releases/<minecraft>-<loader>
 | --- | --- | --- |
 | `1.21.1` | [`releases/1.21.1-fabric`](../../tree/releases/1.21.1-fabric) | [`releases/1.21.1-neoforge`](../../tree/releases/1.21.1-neoforge) |
 | `1.21.2` | [`releases/1.21.2-fabric`](../../tree/releases/1.21.2-fabric) ² | [`releases/1.21.2-neoforge`](../../tree/releases/1.21.2-neoforge) ¹² |
-| `1.21.3` | [`releases/1.21.3-fabric`](../../tree/releases/1.21.3-fabric) | [`releases/1.21.3-neoforge`](../../tree/releases/1.21.3-neoforge) |
+| `1.21.3` | **[`releases/1.21.3-fabric`](../../tree/releases/1.21.3-fabric)** | [`releases/1.21.3-neoforge`](../../tree/releases/1.21.3-neoforge) |
 | `1.21.4` | [`releases/1.21.4-fabric`](../../tree/releases/1.21.4-fabric) | [`releases/1.21.4-neoforge`](../../tree/releases/1.21.4-neoforge) |
 | `1.21.5` | [`releases/1.21.5-fabric`](../../tree/releases/1.21.5-fabric) | [`releases/1.21.5-neoforge`](../../tree/releases/1.21.5-neoforge) |
 | `1.21.6` | [`releases/1.21.6-fabric`](../../tree/releases/1.21.6-fabric) | [`releases/1.21.6-neoforge`](../../tree/releases/1.21.6-neoforge) ¹ |
@@ -47,7 +47,7 @@ Each Minecraft version and mod loader has its own `releases/<minecraft>-<loader>
 | `1.21.10` | [`releases/1.21.10-fabric`](../../tree/releases/1.21.10-fabric) | [`releases/1.21.10-neoforge`](../../tree/releases/1.21.10-neoforge) |
 | `1.21.11` | [`releases/1.21.11-fabric`](../../tree/releases/1.21.11-fabric) | [`releases/1.21.11-neoforge`](../../tree/releases/1.21.11-neoforge) |
 | `26.1.2` | [`releases/26.1.2-fabric`](../../tree/releases/26.1.2-fabric) | [`releases/26.1.2-neoforge`](../../tree/releases/26.1.2-neoforge) |
-| `26.2` | **[`releases/26.2-fabric`](../../tree/releases/26.2-fabric)** | [`releases/26.2-neoforge`](../../tree/releases/26.2-neoforge) |
+| `26.2` | [`releases/26.2-fabric`](../../tree/releases/26.2-fabric) | [`releases/26.2-neoforge`](../../tree/releases/26.2-neoforge) |
 
 ¹ NeoForge only ever published beta builds for this Minecraft version.
 
